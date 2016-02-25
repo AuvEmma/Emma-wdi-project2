@@ -1,0 +1,33 @@
+{
+  "name": "pet-meetup",
+  "version": "1.0.0",
+  "description": "Pet meetup app that allows user to add pets/events to their home pages",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AuvEmma/Emma-wdi-project2.git"
+  },
+  "author": "Emma H",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AuvEmma/Emma-wdi-project2/issues"
+  },
+  "homepage": "https://github.com/AuvEmma/Emma-wdi-project2#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "connect-pg-simple": "^3.1.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "pg": "^4.5.1",
+    "request": "^2.69.0"
+  }
+}
