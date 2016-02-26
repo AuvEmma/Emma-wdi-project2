@@ -43,8 +43,20 @@ app.get('/', function(req, res) {
   res.render('pages/index', { user : req.session.user});
 })
 
+// app.post('/',function(req,res){
+//
+// })
+
 app.get('/signup', function(req,res){
   res.render('pages/signup')
+});
+
+app.post('/',db.createUser, function(req,res){
+  res.redirect('/');
+})
+
+app.get('/mypage', db.loginUser, function(req,res){
+  res.send('this is mypage.ejs');
 })
 
 

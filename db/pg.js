@@ -23,7 +23,7 @@ function loginUser(req, res, next) {
 
         if (results.rows.length === 0) {
           res.status(204).json({success: true, data: 'no content'})
-        } else if (bcrypt.compareSync(password, results.rows[0].password_digest)) {
+        }else if (bcrypt.compareSync(password, results.rows[0].password) ){
           res.rows = results.rows[0]
           next()
         }
@@ -56,7 +56,7 @@ function createUser(req, res, next) {
         return res.status(500).json({success: false, data: err})
       }
 
-      var query = client.query("INSERT INTO users( email, password_digest) VALUES ($1, $2);", [email, hash], function(err, result) {
+      var query = client.query("INSERT INTO users(email, password) VALUES ($1, $2);", [email, hash], function(err, result) {
         done()
         if (err) {
           return console.error('error running query', err)
