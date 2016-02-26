@@ -14,12 +14,13 @@ var app = express();
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   store: new pgSession({
     pg : pg,
     conString : connectionString,
-    tableName : 'users'
+    tableName : 'session'
   }),
   secret : 'This is my secret!',
   resave : false,
