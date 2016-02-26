@@ -12,13 +12,16 @@ pry = require('pryjs');
 var db = require('./db/pg');
 var app = express();
 
+var userRoutes = require( path.join(__dirname, '/routes/users'));
+
+
 app.use(session({
   store: new pgSession({
     pg : pg,
     conString : connectionString,
-    tableName : 'session'
+    tableName : 'users'
   }),
-  secret : 'soooosecreetttt',
+  secret : 'This is my secret!',
   resave : false,
   cookie : { maxAge : 30 * 24 * 60 * 60 * 1000 } // 30 days
 }))
@@ -32,6 +35,10 @@ app.use(methodOverride('_method'))
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
+
+app.get('/', function(req, res) {
+  res.render('pages/index', { user : req.session.user});
+})
 
 
 var port = process.env.PORT || 3000;

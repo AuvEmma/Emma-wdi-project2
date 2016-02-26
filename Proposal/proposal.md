@@ -10,9 +10,8 @@
 * When click on my pets, redirect to (user/:id/pets) and show all list of pets that the current user has.
 * The user should be able to add pets by clicking a add pets button and redirect to (user/:id/pets/new)(imgurl, breed, name, birthdate, funfact), the the user can click submit button to create new pet info and redirect to (user/:id/pets)
 * Under each pet, there is a delete, and edit. When click on delete or edit, redirect to (user/:id/pets or user/:id/pets/:id/edit)
-* When user click on My events, redirect to /user/:id/myevents and show all event created by current user. Under each event, there are delete/edit button, redirect to (user/:id/myevents or user/:id/myevents/:id/edit)
 
-* When user click on Create events, redirect to /user/:id/myevents/new and show a form of event info(img, name, date, time,location,detail, create by)
+* When user click on Create events, redirect to /user/:id/myevents/new and show a form of event info( name, date, time,location,detail, img_url,create by)
 * User can click submit to submit event and redirect to /user/:id/myevents
 * User need to be able to delete/edit created events by clicking on delete button (redirect to /user/:id/myevents/) and edit button(redirect to /user/:id/myevents/:id)
 
