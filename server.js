@@ -13,6 +13,8 @@ var db = require('./db/pg');
 var app = express();
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));
+// var petRoutes = require( path.join(__dirname, '/routes/pets'));
+// var eventRoutes = require( path.join(__dirname, '/routes/events'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -39,6 +41,10 @@ app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
   res.render('pages/index', { user : req.session.user});
+})
+
+app.get('/signup', function(req,res){
+  res.render('pages/signup')
 })
 
 
