@@ -3,6 +3,7 @@ var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
 var session = require('express-session');
+pry = require('pryjs')
 
 function loginUser(req, res, next) {
     var email = req.body.email;
@@ -33,33 +34,30 @@ function loginUser(req, res, next) {
 
 
 function createSecure(email, password, callback) {
-  // hashing the password given by the user at signup
-  bcrypt.genSalt(function(err, salt) {
-    bcrypt.hash(password, salt, function(err, hash) {
-      // this callback saves the user to our databased
-      // with the hashed password
-
-      // saveUser(email, hashed)
-      callback(email, hash)
+  //hashing the password given by the user at sign up
+  bcrypt.genSalt(function(err, salt){
+    bcrypt.hash(password, salt, function(err, hash){
+      eval(pry.it)
+      //this call back save the user to our database with hashed password
+      callback(email,hash);
     })
   })
 }
 
 function createUser(req, res, next) {
-  createSecure(req.body.email, req.body.password, saveUser);
-
-  function saveUser(email, hash) {
-    pg.connect(connectionString, function(err, client, done) {
-      if (err) {
+    createSecure(req.body.email, req.body.password, saveUser);
+  function saveUser(email, hash){
+    pg.connect(connectionString, function(err,client,done){
+      if(err){
         done()
-        console.log(err)
-        return res.status(500).json({success: false, data: err})
+        console.log(err);
+        return res.status(500).json({success:false, data: err})
       }
 
-      var query = client.query("INSERT INTO users(email, password) VALUES ($1, $2);", [email, hash], function(err, result) {
+      var query = client.query("INSERT INTO users(email, password) VALUES ($1, $2);", [email, hash], function(err, result){
         done()
-        if (err) {
-          return console.error('error running query', err)
+        if(err){
+          return console.error('error running query', err);
         }
         next()
       })

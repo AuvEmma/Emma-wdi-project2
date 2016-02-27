@@ -7,8 +7,7 @@ var session = require('express-session');
 var pgSession = require('connect-pg-simple')(session);
 var path = require('path');
 var methodOverride = require('method-override');
-pry = require('pryjs');
-
+pry = require('pryjs')
 var db = require('./db/pg');
 var app = express();
 
@@ -40,7 +39,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
-  res.render('pages/index', { user : req.session.user});
+  res.render('pages/index', {user : req.session.user});
 })
 
 // app.post('/',function(req,res){
@@ -51,14 +50,6 @@ app.get('/signup', function(req,res){
   res.render('pages/signup')
 });
 
-app.post('/',db.createUser, function(req,res){
-  res.redirect('/');
-})
-
-app.get('/mypage', db.loginUser, function(req,res){
-  res.send('this is mypage.ejs');
-})
-
-
+app.use('/users',userRoutes)
 var port = process.env.PORT || 3000;
 var server = app.listen(port)
