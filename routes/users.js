@@ -7,14 +7,14 @@ pry = require('pryjs');
 
 
 users.post('/',db.createUser, function(req,res){
-  // eval(pry.it)
   res.redirect('/');
 })
 
 users.post('/mypage', db.loginUser, function(req,res){
   req.session.user = res.rows;
+  // eval(pry.it)
   req.session.save(function() {
-    res.redirect('/mypage')
+    res.redirect('/users/mypage')
   });
 })
 

@@ -25,6 +25,8 @@ function loginUser(req, res, next) {
           res.status(204).json({success: true, data: 'no content'})
         }else if (bcrypt.compareSync(password, results.rows[0].password) ){
           res.rows = results.rows[0]
+          // eval(pry.it)
+
           next()
         }
       })
