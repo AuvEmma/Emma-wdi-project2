@@ -37,7 +37,6 @@ function createSecure(email, password, callback) {
   //hashing the password given by the user at sign up
   bcrypt.genSalt(function(err, salt){
     bcrypt.hash(password, salt, function(err, hash){
-      eval(pry.it)
       //this call back save the user to our database with hashed password
       callback(email,hash);
     })
