@@ -12,14 +12,13 @@ users.post('/',db.createUser, function(req,res){
 
 users.post('/mypage', db.loginUser, function(req,res){
   req.session.user = res.rows;
-  // eval(pry.it)
   req.session.save(function() {
     res.redirect('/users/mypage')
   });
 })
 
 users.get('/mypage', function(req,res){
-  res.render('users/mypage');
+  res.render('users/mypage', {user: req.session.user.email});
 })
 
 
