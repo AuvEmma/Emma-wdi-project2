@@ -11,11 +11,15 @@ users.post('/',db.createUser, function(req,res){
   res.redirect('/');
 })
 
-users.get('/', db.loginUser, function(req,res){
+users.post('/mypage', db.loginUser, function(req,res){
   req.session.user = res.rows;
   req.session.save(function() {
-    res.redirect('mypage')
+    res.redirect('/mypage')
   });
+})
+
+users.get('/mypage', function(req,res){
+  res.render('users/mypage');
 })
 
 

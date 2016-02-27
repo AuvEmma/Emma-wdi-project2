@@ -8,7 +8,6 @@ pry = require('pryjs')
 function loginUser(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
-
     pg.connect(connectionString, function(err, client, done) {
       if (err) {
         done()
