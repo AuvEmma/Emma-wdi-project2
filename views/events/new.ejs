@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Create a Event</a>
+          <a class="navbar-brand" href="#">My Page <%= user %></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">My Events<span class="sr-only">(current)</span></a></li>
+            <li><a href="/users/mypage/<%=id%>">My Events<span class="sr-only">(current)</span></a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">My Pets</a></li>
@@ -55,13 +55,7 @@
             <label class="col-md-4 control-label" for="name">Event Name</label>
             <div class="col-md-6">
             <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Create By</label>
-            <div class="col-md-6">
-            <input id="createby" name="createby" type="text" placeholder="Create By" class="form-control input-md" required="">
+            <input type="hidden" name="createby" value="<%=id%>">
             </div>
           </div>
 
@@ -90,6 +84,13 @@
             <label class="col-md-4 control-label" for="name">Location</label>
             <div class="col-md-6">
             <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Description</label>
+            <div class="col-md-6">
+            <input id="discription" name="description" type="text" placeholder="Description" class="form-control input-md">
             </div>
           </div>
 
