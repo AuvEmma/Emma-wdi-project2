@@ -10,13 +10,9 @@ events.get('/new', function(req,res){
     id  : req.session.user.users_id});
 })
 
-
-
-
-
-
-
-
+events.post('/new', db.createEvents, function(req,res){
+  res.redirect(`/users/mypage/${req.session.user.users_id}`)
+})
 
 
 

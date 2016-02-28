@@ -17,11 +17,13 @@ users.post('/mypage/:id', db.loginUser, function(req,res){
   });
 })
 
-users.get('/mypage/:id', function(req,res){
+users.get('/mypage/:id', db.myEvents,function(req,res){
+  var eventArr = res.rows;
   res.render('users/mypage', {user: req.session.user.email,
-                              id  : req.params.id});
+                              id  : req.params.id,
+                              events: eventArr
+                              });
 })
-
 
 
 

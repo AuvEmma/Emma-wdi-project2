@@ -49,27 +49,20 @@
           <h1 class="page-header">My Events</h1>
 
           <div class="row placeholders">
+          <% for (var i = 0; i < events.length; i++){ %>
+
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <img src="<%=events[i].img_url%>" width="200" height="200" alt="Generic placeholder thumbnail">
+              <h4><%=events[i].name%></h4>
+              <span class="text-muted">Date: <%=events[i].date%></span><br>
+              <span class="text-muted">Time: <%=events[i].time%></span><br>
+              <span class="text-muted">Location: <%=events[i].location%></span><br>
+              <span class="text-muted">Description: <%=events[i].description%></span><br>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
+
+            <% } %>
           </div>
+
           <h1 class="page-header">My Saved Events</h1>
 
           <div class="row placeholders">

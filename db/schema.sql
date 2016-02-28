@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE events (
        events_id serial UNIQUE PRIMARY KEY,
        name VARCHAR(255),
-       createby VARCHAR(255),
+       users_id integer REFERENCES users,
        img_url VARCHAR(255),
        date DATE,
        time time with time zone,
