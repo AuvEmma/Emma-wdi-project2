@@ -65,5 +65,32 @@ function createUser(req, res, next) {
   }
 }
 
+// function myEvents(req,res,next){
+//   pg.connect(connectionString, function(err, client, done) {
+//     if (err) {
+//       done()
+//       console.log(err)
+//       return res.status(500).json({success: false, data: err})
+//     }
+//
+//     var query = client.query("SELECT * FROM events WHERE email LIKE ($1);", [email], function(err, results) {
+//       done()
+//       if (err) {
+//         return console.error('error running query', err)
+//       }
+//
+//       if (results.rows.length === 0) {
+//         res.status(204).json({success: true, data: 'no content'})
+//       }else if (bcrypt.compareSync(password, results.rows[0].password) ){
+//         res.rows = results.rows[0]
+//         // eval(pry.it)
+//
+//         next()
+//       }
+//     })
+//   })
+// }
+
 module.exports.createUser = createUser;
+// module.exports.myEvents = myEvents;
 module.exports.loginUser = loginUser;

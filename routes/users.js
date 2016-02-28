@@ -10,15 +10,16 @@ users.post('/',db.createUser, function(req,res){
   res.redirect('/');
 })
 
-users.post('/mypage', db.loginUser, function(req,res){
+users.post('/mypage/:id', db.loginUser, function(req,res){
   req.session.user = res.rows;
   req.session.save(function() {
-    res.redirect('/users/mypage')
+    res.redirect(`/users/mypage/${req.session.user.users_id}`)
   });
 })
 
-users.get('/mypage', function(req,res){
-  res.render('users/mypage', {user: req.session.user.email});
+users.get('/mypage/:id', function(req,res){
+  res.render('users/mypage', {user: req.session.user.email,
+                              id  : req.params.id});
 })
 
 
