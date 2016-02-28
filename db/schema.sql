@@ -1,18 +1,20 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS events;
-DROP TABLE IF EXISTS pets;
-DROP TABLE IF EXISTS users_events_join;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS events CASCADE;
+DROP TABLE IF EXISTS pets CASCADE;
+DROP TABLE IF EXISTS users_events_join CASCADE;
 
 CREATE TABLE users (
-       users_id INTEGER UNIQUE PRIMARY KEY,
+       users_id serial UNIQUE PRIMARY KEY,
        email VARCHAR(255),
        password TEXT
 );
 
 
 CREATE TABLE events (
-       events_id INTEGER UNIQUE PRIMARY KEY,
+       events_id serial UNIQUE PRIMARY KEY,
        name VARCHAR(255),
+       createby VARCHAR(255),
+       img_url VARCHAR(255),
        date DATE,
        time time with time zone,
        location TEXT,
@@ -20,8 +22,8 @@ CREATE TABLE events (
 );
 
 CREATE TABLE pets (
-       pets_id INTEGER UNIQUE PRIMARY KEY,
-       users_id INTEGER REFERENCES users,
+       pets_id serial UNIQUE PRIMARY KEY,
+       users_id integer REFERENCES users,
        name VARCHAR(255),
        imgurl VARCHAR(255),
        breed VARCHAR(255),
