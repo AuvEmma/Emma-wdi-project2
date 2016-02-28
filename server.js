@@ -12,8 +12,8 @@ var db = require('./db/pg');
 var app = express();
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));
-// var petRoutes = require( path.join(__dirname, '/routes/pets'));
-// var eventRoutes = require( path.join(__dirname, '/routes/events'));
+var eventRoutes = require( path.join(__dirname, '/routes/events'));
+var petRoutes = require( path.join(__dirname, '/routes/pets'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -52,5 +52,6 @@ app.get('/signup', function(req,res){
 });
 
 app.use('/users',userRoutes)
+app.use('/events',eventRoutes)
 var port = process.env.PORT || 3000;
 var server = app.listen(port)
