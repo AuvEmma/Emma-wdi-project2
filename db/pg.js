@@ -131,8 +131,28 @@ function allEvents(req,res,next){
     })
 }
 
+function allPets(req,res,next){
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    }
+
+    var query = client.query("SELECT * from pets;",function(err, results) {
+      done()
+      if (err) {
+        return console.error('error running query', err)
+      }
+        res.rows = results.rows;
+        next()
+      })
+    })
+}
+
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
 module.exports.createEvents = createEvents;
 module.exports.myEvents = myEvents;
 module.exports.allEvents = allEvents;
+module.exports.allPets = allPets;

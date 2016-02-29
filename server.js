@@ -52,5 +52,6 @@ app.get('/signup', function(req,res){
 
 app.use('/users',userRoutes)
 app.use('/events',eventRoutes)
+app.use('/pets',petRoutes)
 var port = process.env.PORT || 3000;
 var server = app.listen(port)
