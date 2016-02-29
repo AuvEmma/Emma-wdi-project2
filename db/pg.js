@@ -150,9 +150,34 @@ function allPets(req,res,next){
     })
 }
 
+function addPets (req,res,next){
+
+      var name = req.body.name;
+      var users_id = req.body.users_id;
+      var img_url = req.body.img_url;
+      var breed = req.body.breed;
+      var funfact = req.body.funfact;
+
+      pg.connect(connectionString, function(err, client, done){
+        if (err) {
+          done()
+          console.log(err)
+          return res.status(500).json({success: false, data: err})
+        }
+        var query = client.query("INSERT INTO pets(name, users_id, img_url, breed, funfact) VALUES ($1,$2,$3,$4,$5);",[name, users_id, img_url, breed,funfact], function(err, results) {
+          done()
+          if (err) {
+            return console.error('error running query', err)
+          }
+            next()
+          })
+        })
+}
+
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
 module.exports.createEvents = createEvents;
 module.exports.myEvents = myEvents;
 module.exports.allEvents = allEvents;
 module.exports.allPets = allPets;
+module.exports.addPets = addPets;
