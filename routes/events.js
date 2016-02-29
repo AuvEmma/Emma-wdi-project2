@@ -16,7 +16,9 @@ events.post('/new', db.createEvents, function(req,res){
 
 events.get('/all', db.allEvents, function(req,res){
   var allEvents = res.rows;
-  res.render('events/all', {allEvents: allEvents});
+  res.render('events/all', {allEvents: allEvents,
+                            user     : req.session.user.email,
+                            id       : req.session.user.users_id});
 })
 
 module.exports = events;

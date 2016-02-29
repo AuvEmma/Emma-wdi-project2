@@ -14,6 +14,7 @@ CREATE TABLE events (
        events_id serial UNIQUE PRIMARY KEY,
        name VARCHAR(255),
        users_id integer REFERENCES users,
+       email VARCHAR(255),
        img_url VARCHAR(255),
        date DATE,
        time time without time zone,

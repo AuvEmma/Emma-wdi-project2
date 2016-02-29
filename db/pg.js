@@ -72,6 +72,7 @@ function createEvents(req, res, next) {
     var time = req.body.time;
     var location = req.body.location;
     var description = req.body.description;
+    var email = req.body.email;
 
     pg.connect(connectionString, function(err, client, done){
       if (err) {
@@ -80,7 +81,7 @@ function createEvents(req, res, next) {
         return res.status(500).json({success: false, data: err})
       }
 
-      var query = client.query("INSERT INTO events(name, users_id, img_url, date,time,location, description) VALUES ($1,$2,$3,$4,$5,$6,$7);",[name, users_id, img_url, date,time,location, description], function(err, results) {
+      var query = client.query("INSERT INTO events(name, users_id, img_url, date,time,location, description, email) VALUES ($1,$2,$3,$4,$5,$6,$7,$8);",[name, users_id, img_url, date,time,location, description, email], function(err, results) {
         done()
         if (err) {
           return console.error('error running query', err)
@@ -124,7 +125,7 @@ function allEvents(req,res,next){
       if (err) {
         return console.error('error running query', err)
       }
-        res.rows.allEvents = results.rows;
+        res.rows = results.rows;
         next()
       })
     })
