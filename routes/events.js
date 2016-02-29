@@ -25,4 +25,13 @@ events.get('/all', db.allEvents, function(req,res){
                             id       : req.session.user.users_id});
 })
 
+events.get('/edit', function(req,res){
+  res.render('events/edit', {
+    user     : req.session.user.email,
+    id       : req.session.user.users_id});
+})
+
+events.put('/edit/:id', db.editEvents, function(req,res){
+  res.redirect(`/users/mypage/${req.session.user.users_id}`)
+})
 module.exports = events;

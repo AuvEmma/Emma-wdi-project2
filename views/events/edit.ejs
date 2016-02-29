@@ -17,7 +17,7 @@
             <li><a href="/users/mypage/<%=id%>">My Events<span class="sr-only">(current)</span></a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/events/new">Create Event</a></li>
+            <li><a href="/events/new">Create Event</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="/pets">My Pets</a></li>
@@ -35,8 +35,8 @@
 
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1>Create an event</h1><br>
-          <form class="form-horizontal" action="/events/new" method="POST">
+          <h1>Edit an event</h1><br>
+          <form class="form-horizontal" action="/events/edit/?_method=PUT" method="POST">
           <fieldset style="margin-top: 20px;">
 
           <div class="form-group">
