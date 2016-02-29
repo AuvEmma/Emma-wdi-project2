@@ -157,6 +157,7 @@ function addPets (req,res,next){
       var img_url = req.body.img_url;
       var breed = req.body.breed;
       var funfact = req.body.funfact;
+      var email = req.body.email;
 
       pg.connect(connectionString, function(err, client, done){
         if (err) {
@@ -164,7 +165,7 @@ function addPets (req,res,next){
           console.log(err)
           return res.status(500).json({success: false, data: err})
         }
-        var query = client.query("INSERT INTO pets(name, users_id, imgurl, breed, funfact) VALUES ($1,$2,$3,$4,$5);",[name, users_id, img_url, breed,funfact], function(err, results) {
+        var query = client.query("INSERT INTO pets(name, users_id, imgurl, breed, funfact, email) VALUES ($1,$2,$3,$4,$5,$6);",[name, users_id, img_url, breed,funfact,email], function(err, results) {
           done()
           if (err) {
             return console.error('error running query', err)
