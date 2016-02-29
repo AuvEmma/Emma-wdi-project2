@@ -27,7 +27,6 @@ events.get('/all', db.allEvents, function(req,res){
 
 
 events.get('/:id', db.getSingleEvent, function(req,res){
-  console.log(res.rows);
   var events = res.rows[0];
   res.render('events/edit', {events    : events,
     user     : req.session.user.email,

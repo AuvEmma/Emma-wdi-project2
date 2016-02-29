@@ -13,7 +13,11 @@ var app = express();
 var favicon    = require('serve-favicon');
 require('dotenv').config();
 
-
+if(process.env.ENVIRONMENT === 'production'){
+  var connectionString=process.env.DATABASE_URL;
+}else{
+  var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
+}
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));
 var eventRoutes = require( path.join(__dirname, '/routes/events'));
