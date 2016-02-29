@@ -19,7 +19,6 @@ events.get('/all', db.allEvents, function(req,res){
   for(var i = 0;i<allEvents.length;i++){
     var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short'};
     allEvents[i].date = allEvents[i].date.toLocaleDateString('en-US', options);
-    console.log(allEvents[i].date);
   }
   res.render('events/all', {allEvents: allEvents,
                             user     : req.session.user.email,
