@@ -28,21 +28,22 @@
           <ul class="nav nav-sidebar">
             <li><a href="/events/all">All Events</a></li>
           </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/pets/all">All Pets</a></li>
+          </ul>
+
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">My Pets</h1>
 
           <div class="row placeholders">
-          <% for (var i = 0; i < allPets.length; i++){ %>
+          <% for (var i = 0; i < myPets.length; i++){ %>
 
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="<%= allPets[i].img_url%>" width="200" height="200" alt="Generic placeholder thumbnail">
-              <h4><%= allPets[i].name%></h4>
-              <span class="text-muted">Date: <%= allPets[i].date%></span><br>
-              <span class="text-muted">Time: <%= allPets[i].time%></span><br>
-              <span class="text-muted">Location: <%= allPets[i].location%></span><br>
-              <span class="text-muted">Description: <%= allPets[i].description%></span><br>
-              <span class="text-muted">Created By: <%= allPets[i].email%></span>
+              <img src="<%= myPets[i].imgurl%>" width="200" height="200" alt="Pets Img">
+              <h4><%= myPets[i].name%></h4>
+              <span class="text-muted">Date: <%= myPets[i].breed%></span><br>
+              <span class="text-muted">Time: <%= myPets[i].funfact%></span><br>
             </div>
 
             <% } %>

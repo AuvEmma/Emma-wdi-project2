@@ -164,7 +164,7 @@ function addPets (req,res,next){
           console.log(err)
           return res.status(500).json({success: false, data: err})
         }
-        var query = client.query("INSERT INTO pets(name, users_id, img_url, breed, funfact) VALUES ($1,$2,$3,$4,$5);",[name, users_id, img_url, breed,funfact], function(err, results) {
+        var query = client.query("INSERT INTO pets(name, users_id, imgurl, breed, funfact) VALUES ($1,$2,$3,$4,$5);",[name, users_id, img_url, breed,funfact], function(err, results) {
           done()
           if (err) {
             return console.error('error running query', err)
@@ -172,6 +172,26 @@ function addPets (req,res,next){
             next()
           })
         })
+}
+function myPets(req,res,next){
+      var users_id = req.session.user.users_id
+      pg.connect(connectionString, function(err, client, done){
+        if (err) {
+          done()
+          console.log(err)
+          return res.status(500).json({success: false, data: err})
+        }
+
+        var query = client.query("SELECT * from pets WHERE users_id=($1);",[users_id], function(err, results) {
+          done()
+          if (err) {
+            return console.error('error running query', err)
+          }
+            res.rows = results.rows;
+            next()
+          })
+        })
+
 }
 
 module.exports.createUser = createUser;
@@ -181,3 +201,4 @@ module.exports.myEvents = myEvents;
 module.exports.allEvents = allEvents;
 module.exports.allPets = allPets;
 module.exports.addPets = addPets;
+module.exports.myPets = myPets;

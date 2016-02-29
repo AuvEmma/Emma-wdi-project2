@@ -4,14 +4,22 @@ var bodyParser = require('body-parser');
 var db = require('./../db/pg');
 pry = require('pryjs');
 
-pets.get('/',db.allPets,function(req,res){
+pets.get('/all',db.allPets,function(req,res){
   var allPets = res.rows;
 
-  res.render('pets/pets', {
+  res.render('pets/allpets', {
     allPets: allPets,
     user: req.session.user.email,
     id  : req.session.user.users_id});
 
+})
+
+pets.get('/', db.myPets, function(req,res){
+  var myPets = res.rows;
+  res.render('pets/mypets', {
+    myPets: myPets,
+    user: req.session.user.email,
+    id  : req.session.user.users_id});
 })
 
 pets.get('/new', function(req,res){
