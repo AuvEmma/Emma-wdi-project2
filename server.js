@@ -11,6 +11,8 @@ pry = require('pryjs')
 var db = require('./db/pg');
 var app = express();
 var favicon    = require('serve-favicon');
+require('dotenv').config();
+
 
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));

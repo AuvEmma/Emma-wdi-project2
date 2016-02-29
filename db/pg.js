@@ -1,4 +1,11 @@
 var pg = require('pg');
+var config = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS
+};
 var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
