@@ -36,13 +36,13 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1>Edit an event</h1><br>
-          <form class="form-horizontal" action="/events/edit/?_method=PUT" method="POST">
+          <form class="form-horizontal" action="/events/edit/<%event.event_id%>?_method=PUT" method="POST">
           <fieldset style="margin-top: 20px;">
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Event Name</label>
             <div class="col-md-6">
-            <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="">
+            <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="" value="<%=events.name%>">
             <input type="hidden" name="users_id" value="<%=id%>">
             <input type="hidden" name="email" value="<%=user%>">
             </div>

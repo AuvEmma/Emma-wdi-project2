@@ -228,7 +228,6 @@ function editEvents(req,res,next){
 }
 
 function getSingleEvent(req,res,next){
-  var events_id = req.body.events_id;
   pg.connect(connectionString, function(err, client, done){
     if (err) {
       done()
@@ -236,7 +235,7 @@ function getSingleEvent(req,res,next){
       return res.status(500).json({success: false, data: err})
     }
 
-    var query = client.query("SELECT * from events WHERE events_id=($1);",[events_id], function(err, results) {
+    var query = client.query("SELECT * from events WHERE events_id=($1);",[req.params.id], function(err, results) {
       done()
       if (err) {
         return console.error('error running query', err)
@@ -247,6 +246,25 @@ function getSingleEvent(req,res,next){
     })
 }
 
+function deleteSingleEvent(req,res,next){
+  var events_id = req.params.id;
+  eval(pry.it)
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    }
+
+    var query = client.query("delete from events WHERE events_id=($1);",[events_id], function(err, results) {
+      done()
+      if (err) {
+        return console.error('error running query', err)
+      }
+        next()
+      })
+    })
+}
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
 module.exports.createEvents = createEvents;
@@ -256,3 +274,5 @@ module.exports.allPets = allPets;
 module.exports.addPets = addPets;
 module.exports.myPets = myPets;
 module.exports.editEvents = editEvents;
+module.exports.getSingleEvent = getSingleEvent;
+module.exports.deleteSingleEvent = deleteSingleEvent;

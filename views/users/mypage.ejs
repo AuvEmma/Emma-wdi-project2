@@ -48,11 +48,8 @@
               <span class="text-muted">Location: <%=events[i].location%></span><br>
               <span class="text-muted">Description: <%=events[i].description%></span><br>
               <div class="form">
-                <form class="" action="" method="post" style="display: inline-block;padding-top: 10px;">
-                  <input type="hidden" name="events_id" value="<%=events[i].events_id%>">
-                  <a href="/events/edit" type="sumbit" name="edit" class="button rosy">Edit</a>
-                </form>
-                <form class="" action="index.html" method="post" style="display: inline-block;padding-top: 10px;">
+                  <a href="/events/<%=events[i].events_id%>" type="sumbit" name="edit" class="button rosy" style="display: inline-block;padding-top: 10px;">Edit</a>
+                <form class="" action="/events/<%=events[i].events_id%>?_method=DELETE" method="post" style="display: inline-block;padding-top: 10px;">
                   <button type="submit" name="delete" class="button rosy">Delete</button>
                 </form>
               </div>
