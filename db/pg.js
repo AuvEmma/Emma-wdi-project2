@@ -227,6 +227,26 @@ function editEvents(req,res,next){
     })
 }
 
+function getSingleEvent(req,res,next){
+  var events_id = req.body.events_id;
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    }
+
+    var query = client.query("SELECT * from events WHERE events_id=($1);",[events_id], function(err, results) {
+      done()
+      if (err) {
+        return console.error('error running query', err)
+      }
+        res.rows = results.rows;
+        next()
+      })
+    })
+}
+
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
 module.exports.createEvents = createEvents;

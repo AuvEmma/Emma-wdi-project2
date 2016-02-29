@@ -49,6 +49,7 @@
               <span class="text-muted">Description: <%=events[i].description%></span><br>
               <div class="form">
                 <form class="" action="" method="post" style="display: inline-block;padding-top: 10px;">
+                  <input type="hidden" name="events_id" value="<%=events[i].events_id%>">
                   <a href="/events/edit" type="sumbit" name="edit" class="button rosy">Edit</a>
                 </form>
                 <form class="" action="index.html" method="post" style="display: inline-block;padding-top: 10px;">
