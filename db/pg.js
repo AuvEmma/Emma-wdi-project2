@@ -1,7 +1,7 @@
 var pg = require('pg');
 
 if(process.env.ENVIRONMENT === 'Production'){
-  var config - process.env.DATABASE_URL
+  var config = process.env.DATABASE_URL
 }else{
   var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
 }
