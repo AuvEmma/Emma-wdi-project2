@@ -10,11 +10,14 @@ var methodOverride = require('method-override');
 pry = require('pryjs')
 var db = require('./db/pg');
 var app = express();
+var favicon    = require('serve-favicon');
+
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));
 var eventRoutes = require( path.join(__dirname, '/routes/events'));
 var petRoutes = require( path.join(__dirname, '/routes/pets'));
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
