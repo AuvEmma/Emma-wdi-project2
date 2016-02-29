@@ -16,7 +16,7 @@ CREATE TABLE events (
        users_id integer REFERENCES users,
        img_url VARCHAR(255),
        date DATE,
-       time time with time zone,
+       time time without time zone,
        location TEXT,
        description TEXT
 );

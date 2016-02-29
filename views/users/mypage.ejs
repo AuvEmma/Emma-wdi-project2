@@ -19,8 +19,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <form class="logout"  style="margin-top: 15px;margin-right: 15px;" action="/users/logout" method="post">
+            <li>
+                <a class="logout" href="/" type="submit">Logout</a>
+            </li>
+          </form>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -55,6 +58,7 @@
               <img src="<%=events[i].img_url%>" width="200" height="200" alt="Generic placeholder thumbnail">
               <h4><%=events[i].name%></h4>
               <span class="text-muted">Date: <%=events[i].date%></span><br>
+              <span class="text-muted">Created By User: <%=events[i].users_id%></span><br>
               <span class="text-muted">Time: <%=events[i].time%></span><br>
               <span class="text-muted">Location: <%=events[i].location%></span><br>
               <span class="text-muted">Description: <%=events[i].description%></span><br>
@@ -96,16 +100,3 @@
     <%- include ../partials/footer %>
   </body>
 </html>
-
-
-
-<!-- <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Mypage</title>
-</head>
-<body>
-  This is my page!
-  hi <%= user %>
-</body>
-</html> -->

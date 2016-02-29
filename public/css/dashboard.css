@@ -27,6 +27,14 @@ body {
      color: #a94442;
  }
 
+ a:focus, a:hover {
+    text-decoration: none;
+}
+
+a.logout{
+  color: #FCF8E3;
+}
+
  .navbar-inverse .navbar-nav>li>a {
      color: #fcf8e3 !important;
  }

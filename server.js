@@ -39,8 +39,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
-  res.render('pages/index', {user : req.session.user,
-                            id    : req.session.user.users_id});
+  res.render('pages/index');
 })
 
 // app.post('/',function(req,res){
