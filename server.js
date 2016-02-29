@@ -39,7 +39,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
-  res.render('pages/index');
+  res.render('pages/cover');
 })
 
 // app.post('/',function(req,res){
