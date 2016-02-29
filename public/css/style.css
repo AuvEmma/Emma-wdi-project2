@@ -35,7 +35,7 @@ body {
 	color: #fcf8e3;
 	border: solid 1px #A94442;
 	background: #A94442;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f16c7c), to(#A94442));
+	background: -webkit-gradient(linear, left top, left bottom, from(#A94442), to(#A94442));
 	background: -moz-linear-gradient(top,  #f16c7c,  #bf404f);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f16c7c', endColorstr='#bf404f');
 }
@@ -53,3 +53,8 @@ body {
 }
 
 /*http://www.webdesignerwall.com/demo/css-buttons.html*/
+
+form{
+  display: inline-block !important;
+  padding-top: 10px;
+}

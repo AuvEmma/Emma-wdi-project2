@@ -62,8 +62,14 @@
               <span class="text-muted">Time: <%=events[i].time%></span><br>
               <span class="text-muted">Location: <%=events[i].location%></span><br>
               <span class="text-muted">Description: <%=events[i].description%></span><br>
-              <button type="button" name="button" class="button rosy">Edit</button>
-              <button type="button" name="button" class="button rosy">Delete</button>
+              <div class="form">
+                <form class="" action="index.html" method="post">
+                  <button type="sumbit" name="edit" class="button rosy">Edit</button>
+                </form>
+                <form class="" action="index.html" method="post">
+                  <button type="submit" name="delete" class="button rosy">Delete</button>
+                </form>
+              </div>
             </div>
             <% } %>
           </div>
