@@ -3,7 +3,7 @@ var pg = require('pg');
 if(process.env.ENVIRONMENT === 'production'){
   var connectionString=process.env.DATABASE_URL;
 }else{
-  var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
+  var connectionString = process.env.DB_URL;
 }
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
