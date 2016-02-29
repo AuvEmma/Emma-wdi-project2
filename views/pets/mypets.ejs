@@ -20,14 +20,13 @@
             <li><a href="/events/new">Create Event</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="/pets">My Pets</a></li>
+            <li class="active"><a href="/pets">My Pets</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="/pets/new">Add Pets</a></li>
           </ul>
-
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/events/all">All Events</a></li>
+            <li><a href="/events/all">All Events</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="/pets/all">All Pets</a></li>
@@ -35,19 +34,27 @@
 
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">My Events</h1>
+          <h1 class="page-header">My Pets</h1>
 
           <div class="row placeholders">
-          <% for (var i = 0; i < allEvents.length; i++){ %>
+          <% for (var i = 0; i < myPets.length; i++){ %>
+
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="<%= allEvents[i].img_url%>" width="200" height="200" alt="Generic placeholder thumbnail">
-              <h4><%= allEvents[i].name%></h4>
-              <span class="text-muted">Date: <%= allEvents[i].date%></span><br>
-              <span class="text-muted">Time: <%= allEvents[i].time%></span><br>
-              <span class="text-muted">Location: <%= allEvents[i].location%></span><br>
-              <span class="text-muted">Description: <%= allEvents[i].description%></span><br>
-              <span class="text-muted">Created By: <%= allEvents[i].email%></span>
+              <img src="<%= myPets[i].imgurl%>" width="200" height="200" alt="Pets Img">
+              <h4><%= myPets[i].name%></h4>
+              <span class="text-muted">Date: <%= myPets[i].breed%></span><br>
+              <span class="text-muted">Time: <%= myPets[i].funfact%></span><br>
+              <div class="form">
+                <form class="" action="index.html" method="post" style="display: inline-block;padding-top: 10px;">
+                  <button type="sumbit" name="edit" class="button rosy">Edit</button>
+                </form>
+                <form class="" action="index.html" method="post" style="display: inline-block;padding-top: 10px;">
+                  <button type="submit" name="delete" class="button rosy">Delete</button>
+                </form>
+              </div>
+
             </div>
+
             <% } %>
           </div>
 

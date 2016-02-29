@@ -10,11 +10,16 @@ var methodOverride = require('method-override');
 pry = require('pryjs')
 var db = require('./db/pg');
 var app = express();
+var favicon    = require('serve-favicon');
+require('dotenv').config();
+
+
 
 var userRoutes = require( path.join(__dirname, '/routes/users'));
 var eventRoutes = require( path.join(__dirname, '/routes/events'));
 var petRoutes = require( path.join(__dirname, '/routes/pets'));
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
@@ -39,7 +44,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
-  res.render('pages/index');
+  res.render('pages/cover');
 })
 
 // app.post('/',function(req,res){
@@ -52,5 +57,6 @@ app.get('/signup', function(req,res){
 
 app.use('/users',userRoutes)
 app.use('/events',eventRoutes)
+app.use('/pets',petRoutes)
 var port = process.env.PORT || 3000;
 var server = app.listen(port)

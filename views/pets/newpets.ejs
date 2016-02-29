@@ -23,7 +23,7 @@
             <li><a href="/pets">My Pets</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="/pets/new">Add Pets</a></li>
+            <li class="active"><a href="/pets/new">Add Pets</a></li>
           </ul>
 
           <ul class="nav nav-sidebar">
@@ -35,16 +35,17 @@
 
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1>Edit an event</h1><br>
-          <form class="form-horizontal" action="/events/edit/?_method=PUT" method="POST">
+          <h1 class="page-header">Add Your Pet</h1><br>
+          <form class="form-horizontal" action="/pets/new" method="POST">
           <fieldset style="margin-top: 20px;">
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Event Name</label>
+            <label class="col-md-4 control-label" for="name">Pet Name</label>
             <div class="col-md-6">
-            <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="">
+            <input id="name" name="name" type="text" placeholder="Pet Name" class="form-control input-md" required="">
             <input type="hidden" name="users_id" value="<%=id%>">
             <input type="hidden" name="email" value="<%=user%>">
+          
             </div>
           </div>
 
@@ -56,32 +57,19 @@
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Date</label>
+            <label class="col-md-4 control-label" for="name">Breed</label>
             <div class="col-md-6">
-            <input id="date" name="date" type="date" placeholder="Date" class="form-control input-md">
+            <input id="breed" name="breed" type="text" placeholder="Breed" class="form-control input-md">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Time</label>
+            <label class="col-md-4 control-label" for="name">Fun Fact</label>
             <div class="col-md-6">
-            <input id="time" name="time" type="time" placeholder="Time" class="form-control input-md">
+            <input id="funfact" name="funfact" type="text" placeholder="Funfact" class="form-control input-md">
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Location</label>
-            <div class="col-md-6">
-            <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Description</label>
-            <div class="col-md-6">
-            <input id="discription" name="description" type="text" placeholder="Description" class="form-control input-md">
-            </div>
-          </div>
 
           <!-- Button -->
           <div class="form-group">
