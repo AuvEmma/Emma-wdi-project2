@@ -19,8 +19,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <%- include ../partials/logout %>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -43,7 +42,7 @@
             <li class="active"><a href="">Create Event</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">All Events</a></li>
+            <li><a href="/events/all">All Events</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
