@@ -2,7 +2,6 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var pg = require('pg');
-var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
 var session = require('express-session');
 var pgSession = require('connect-pg-simple')(session);
 var path = require('path');
