@@ -7,7 +7,7 @@ https://petmeetup.herokuapp.com/
 
 ###User Stories
 
-![](GA_Project2_ERD.png)
+![](Proposal/GA_Project2_ERD.png)
 
 * As a user, I need to be able to signup and login from the homepage by typing in my username and password (/)
 * As a user, I need to be redirected to my own homepage after login (/users/:id)
