@@ -3,6 +3,7 @@ Web Based Full Stack App
 
 https://petmeetup.herokuapp.com/
 
+This app is a place for user to add their pets info and create events (related to pets or not). And also being able to add other's events into my saved events (to be developed).
 #Pet Meetup
 
 ###User Stories
