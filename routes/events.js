@@ -26,20 +26,25 @@ events.get('/all', db.allEvents, function(req,res){
 })
 
 
-events.get('/:id', db.getSingleEvent, function(req,res){
+events.get('/:id/edit', db.getSingleEvent, function(req,res){
   var events = res.rows[0];
+  for(var i = 0;i<events.length;i++){
+    var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short'};
+    events[i].date = events[i].date.toLocaleDateString('en-US', options);
+  }
+  // eval(pry.it)
   res.render('events/edit', {events    : events,
     user     : req.session.user.email,
     id       : req.session.user.users_id});
 })
 
-events.put('/:id', db.editEvents, function(req,res){
+events.put('/:id/edit', db.editEvents, function(req,res){
   res.status(303).redirect(`/users/mypage/${req.session.user.users_id}`);
 
 })
 
-events.delete('/:id', db.deleteSingleEvent, function(req,res){
-  eval(pry.it)
+events.delete('/:id/edit', db.deleteSingleEvent, function(req,res){
   res.redirect(`/users/mypage/${req.session.user.users_id}`)
 })
+
 module.exports = events;

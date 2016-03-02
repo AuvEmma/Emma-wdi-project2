@@ -3,7 +3,7 @@ var pg = require('pg');
 if(process.env.ENVIRONMENT === 'production'){
   var connectionString=process.env.DATABASE_URL;
 }else{
-  var connectionString = process.env.DB_URL;
+  var connectionString = "postgres://emmahou:900118@localhost/petmeetup";
 }
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
@@ -248,7 +248,6 @@ function getSingleEvent(req,res,next){
 
 function deleteSingleEvent(req,res,next){
   var events_id = req.params.id;
-  eval(pry.it)
   pg.connect(connectionString, function(err, client, done){
     if (err) {
       done()

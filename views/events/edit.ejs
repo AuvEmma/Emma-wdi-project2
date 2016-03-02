@@ -36,7 +36,7 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1>Edit an event</h1><br>
-          <form class="form-horizontal" action="/events/edit/<%event.event_id%>?_method=PUT" method="POST">
+          <form class="form-horizontal" action="/events/edit/<%events.event_id%>?_method=PUT" method="POST">
           <fieldset style="margin-top: 20px;">
 
           <div class="form-group">
@@ -51,35 +51,35 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Image URL</label>
             <div class="col-md-6">
-            <input id="img_url" name="img_url" type="text" placeholder="Image URL" class="form-control input-md">
+            <input id="img_url" name="img_url" type="text" placeholder="Image URL" class="form-control input-md" value="<%=events.img_url%>">
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Date</label>
             <div class="col-md-6">
-            <input id="date" name="date" type="date" placeholder="Date" class="form-control input-md">
+            <input id="date" name="date" type="date" placeholder="Date" class="form-control input-md" value="<%=events.date%>">
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Time</label>
             <div class="col-md-6">
-            <input id="time" name="time" type="time" placeholder="Time" class="form-control input-md">
+            <input id="time" name="time" type="time" placeholder="Time" class="form-control input-md" value="<%=events.time%>">
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Location</label>
             <div class="col-md-6">
-            <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md">
+            <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md" value="<%=events.location%>">
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Description</label>
             <div class="col-md-6">
-            <input id="discription" name="description" type="text" placeholder="Description" class="form-control input-md">
+            <input id="discription" name="description" type="text" placeholder="Description" class="form-control input-md" value="<%=events.description%>">
             </div>
           </div>
 
