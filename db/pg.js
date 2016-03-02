@@ -264,6 +264,68 @@ function deleteSingleEvent(req,res,next){
 }
 
 
+function editPets(req,res,next){
+  var name = req.body.name;
+  var users_id = req.body.users_id;
+  var imgurl = req.body.imgurl;
+  var breed = req.body.breed;
+  var funfact = req.body.funfact;
+  var email = req.body.email;
+  var pets_id = req.body.pets_id;
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    }
+    var query = client.query("UPDATE pets set name=$1, users_id=$2, imgurl=$3, breed=$4, funfact=$5, email =$6 where pets_id=$7", [name, users_id, imgurl, breed,funfact,email, pets_id], function(err, results) {
+      done()
+      if (err) {
+        return console.error('error running query', err)
+      }
+        next()
+      })
+    })
+}
+
+function getSinglePet(req,res,next){
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    }
+
+    var query = client.query("SELECT * from pets WHERE pets_id=($1);",[req.params.id], function(err, results) {
+      done()
+      if (err) {
+        return console.error('error running query', err)
+      }
+        res.rows = results.rows;
+        next()
+      })
+    })
+}
+
+function deleteSinglePet(req,res,next){
+  var pets_id = req.params.id;
+  pg.connect(connectionString, function(err, client, done){
+    if (err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    }
+
+    var query = client.query("delete from pets WHERE pets_id=($1);",[pets_id], function(err, results) {
+      done()
+      if (err) {
+        return console.error('error running query', err)
+      }
+        next()
+      })
+    })
+}
+
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
 module.exports.createEvents = createEvents;
@@ -275,3 +337,7 @@ module.exports.myPets = myPets;
 module.exports.editEvents = editEvents;
 module.exports.getSingleEvent = getSingleEvent;
 module.exports.deleteSingleEvent = deleteSingleEvent;
+
+module.exports.editPets = editPets;
+module.exports.getSinglePet = getSinglePet;
+module.exports.deleteSinglePet = deleteSinglePet;

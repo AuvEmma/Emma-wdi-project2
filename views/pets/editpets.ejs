@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ../partials/head %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <%- include ../partials/nav %>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="/users/mypage/<%=id%>">My Events<span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/events/new">Create Event</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/pets">My Pets</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/pets/new">Add Pets</a></li>
+          </ul>
+
+          <ul class="nav nav-sidebar">
+            <li><a href="/events/all">All Events</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/pets/all">All Pets</a></li>
+          </ul>
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1>Edit a pet</h1><br>
+          <form class="form-horizontal" action="/pets/<%=pets.pets_id%>?_method=PUT" method="POST">
+          <fieldset style="margin-top: 20px;">
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Pet Name</label>
+            <div class="col-md-6">
+            <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="" value="<%=pets.name%>">
+            <input type="hidden" name="users_id" value="<%=id%>">
+            <input type="hidden" name="email" value="<%=user%>">
+            <input type="hidden" name="pets_id" value="<%=pets.pets_id%>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Image URL</label>
+            <div class="col-md-6">
+            <input id="imgurl" name="imgurl" type="text" placeholder="Image URL" class="form-control input-md" value="<%=pets.imgurl%>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Breed</label>
+            <div class="col-md-6">
+            <input id="breed" name="breed" type="text" placeholder="Breed" class="form-control input-md" value="<%=pets.breed%>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Fun Fact</label>
+            <div class="col-md-6">
+            <input id="funfact" name="funfact" type="text" placeholder="Fun Fact" class="form-control input-md" value="<%=pets.funfact%>">
+            </div>
+          </div>
+
+
+          <!-- Button -->
+          <div class="form-group">
+            <div class="col-md-4">
+              <button id="submit" type="submit" class="btn btn-lg" style="margin-top: 50px;background-image: linear-gradient(to bottom,#a94442 0,#a94442 100%); color: white;">Submit</button>
+            </div>
+          </div>
+
+          </fieldset>
+          </form>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include ../partials/footer %>
+  </body>
+</html>

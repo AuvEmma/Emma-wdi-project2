@@ -42,15 +42,12 @@
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="<%= myPets[i].imgurl%>" width="200" height="200" alt="Pets Img">
               <h4><%= myPets[i].name%></h4>
-              <span class="text-muted">Date: <%= myPets[i].breed%></span><br>
-              <span class="text-muted">Time: <%= myPets[i].funfact%></span><br>
+              <span class="text-muted">Breed: <%= myPets[i].breed%></span><br>
+              <span class="text-muted">Funfact: <%= myPets[i].funfact%></span><br>
               <div class="form">
-                <form class="" action="index.html" method="post" style="display: inline-block;padding-top: 10px;">
-                  <button type="sumbit" name="edit" class="button rosy">Edit</button>
-                </form>
-                <form class="" action="index.html" method="post" style="display: inline-block;padding-top: 10px;">
-                  <button type="submit" name="delete" class="button rosy">Delete</button>
-                </form>
+                <a href="/pets/<%=myPets[i].pets_id%>/edit" name="edit" class="button rosy" style="display: inline-block;padding-top: 10px;">Edit</a>
+              <form class="" action="/pets/<%=myPets[i].pets_id%>?_method=DELETE" method="post" style="display: inline-block;padding-top: 10px;">
+                <button type="submit" name="delete" class="button rosy">Delete</button>
               </div>
 
             </div>
