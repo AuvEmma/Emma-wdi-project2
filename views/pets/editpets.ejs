@@ -35,54 +35,41 @@
 
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1>Edit an event</h1><br>
-          <form class="form-horizontal" action="/events/<%=events.events_id%>?_method=PUT" method="POST">
+          <h1>Edit a pet</h1><br>
+          <form class="form-horizontal" action="/pets/<%=pets.pets_id%>?_method=PUT" method="POST">
           <fieldset style="margin-top: 20px;">
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Event Name</label>
+            <label class="col-md-4 control-label" for="name">Pet Name</label>
             <div class="col-md-6">
-            <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="" value="<%=events.name%>">
+            <input id="name" name="name" type="text" placeholder="Event Name" class="form-control input-md" required="" value="<%=pets.name%>">
             <input type="hidden" name="users_id" value="<%=id%>">
             <input type="hidden" name="email" value="<%=user%>">
-            <input type="hidden" name="events_id" value="<%=events.events_id%>">
+            <input type="hidden" name="pets_id" value="<%=pets.pets_id%>">
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Image URL</label>
             <div class="col-md-6">
-            <input id="img_url" name="img_url" type="text" placeholder="Image URL" class="form-control input-md" value="<%=events.img_url%>">
+            <input id="imgurl" name="imgurl" type="text" placeholder="Image URL" class="form-control input-md" value="<%=pets.imgurl%>">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Date</label>
+            <label class="col-md-4 control-label" for="name">Breed</label>
             <div class="col-md-6">
-            <input id="date" name="date" type="date" placeholder="Date" class="form-control input-md" value="<%=events.date%>">
+            <input id="breed" name="breed" type="text" placeholder="Breed" class="form-control input-md" value="<%=pets.breed%>">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Time</label>
+            <label class="col-md-4 control-label" for="name">Fun Fact</label>
             <div class="col-md-6">
-            <input id="time" name="time" type="time" placeholder="Time" class="form-control input-md" value="<%=events.time%>">
+            <input id="funfact" name="funfact" type="text" placeholder="Fun Fact" class="form-control input-md" value="<%=pets.funfact%>">
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Location</label>
-            <div class="col-md-6">
-            <input id="location" name="location" type="text" placeholder="Location" class="form-control input-md" value="<%=events.location%>">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Description</label>
-            <div class="col-md-6">
-            <input id="discription" name="description" type="text" placeholder="Description" class="form-control input-md" value="<%=events.description%>">
-            </div>
-          </div>
 
           <!-- Button -->
           <div class="form-group">

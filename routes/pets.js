@@ -32,5 +32,19 @@ pets.post('/new', db.addPets, function(req,res){
   res.redirect('/pets')
 })
 
+pets.get('/:id/edit', db.getSinglePet, function(req,res){
+  var pets = res.rows[0];
+  res.render('pets/editpets', {pets    : pets,
+    user     : req.session.user.email,
+    id       : req.session.user.users_id});
+})
+
+pets.put('/:id', db.editPets, function(req,res){
+  res.status(303).redirect('/pets');
+})
+
+pets.delete('/:id', db.deleteSinglePet, function(req,res){
+  res.redirect('/pets')
+})
 
 module.exports = pets;

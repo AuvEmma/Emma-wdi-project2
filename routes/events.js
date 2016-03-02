@@ -26,8 +26,12 @@ events.get('/all', db.allEvents, function(req,res){
 })
 
 
-events.get('/:id', db.getSingleEvent, function(req,res){
+events.get('/:id/edit', db.getSingleEvent, function(req,res){
   var events = res.rows[0];
+  var year = events.date.getFullYear();
+  var month = ('0'+ events.date.getMonth()).slice(-2);
+  var day =('0'+ events.date.getDate()).slice(-2);
+  events.date = year +'-' + month + '-' + day;
   res.render('events/edit', {events    : events,
     user     : req.session.user.email,
     id       : req.session.user.users_id});
@@ -35,11 +39,10 @@ events.get('/:id', db.getSingleEvent, function(req,res){
 
 events.put('/:id', db.editEvents, function(req,res){
   res.status(303).redirect(`/users/mypage/${req.session.user.users_id}`);
-
 })
 
 events.delete('/:id', db.deleteSingleEvent, function(req,res){
-  eval(pry.it)
   res.redirect(`/users/mypage/${req.session.user.users_id}`)
 })
+
 module.exports = events;
