@@ -28,10 +28,10 @@ events.get('/all', db.allEvents, function(req,res){
 
 events.get('/:id/edit', db.getSingleEvent, function(req,res){
   var events = res.rows[0];
-  for(var i = 0;i<events.length;i++){
-    var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short'};
-    events[i].date = events[i].date.toLocaleDateString('en-US', options);
-  }
+  var year = events.date.getFullYear();
+  var month = ('0'+ events.date.getMonth()).slice(-2);
+  var day =('0'+ events.date.getDate()).slice(-2);
+  events.date = year +'-' + month + '-' + day;
   // eval(pry.it)
   res.render('events/edit', {events    : events,
     user     : req.session.user.email,

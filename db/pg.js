@@ -264,6 +264,8 @@ function deleteSingleEvent(req,res,next){
       })
     })
 }
+
+
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
 module.exports.createEvents = createEvents;
