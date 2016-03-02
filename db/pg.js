@@ -209,15 +209,13 @@ function editEvents(req,res,next){
   var description = req.body.description;
   var email = req.body.email;
   var events_id = req.body.events_id;
-
   pg.connect(connectionString, function(err, client, done){
     if (err) {
       done()
       console.log(err)
       return res.status(500).json({success: false, data: err})
     }
-
-    var query = client.query("UPDATE events set name = $1, users_id = $2, img_url = $3, date = $4, time = $5, location = $6, description = $7, email = $8 where events_id = $9",[name, users_id, img_url, date,time,location, description, email, events_id], function(err, results) {
+    var query = client.query("UPDATE events set name=$1, users_id=$2, img_url=$3, date=$4, time=$5, location=$6, description=$7, email =$8 where events_id=$9", [name, users_id, img_url, date,time,location, description, email, events_id], function(err, results) {
       done()
       if (err) {
         return console.error('error running query', err)

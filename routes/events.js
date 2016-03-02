@@ -32,18 +32,16 @@ events.get('/:id/edit', db.getSingleEvent, function(req,res){
   var month = ('0'+ events.date.getMonth()).slice(-2);
   var day =('0'+ events.date.getDate()).slice(-2);
   events.date = year +'-' + month + '-' + day;
-  // eval(pry.it)
   res.render('events/edit', {events    : events,
     user     : req.session.user.email,
     id       : req.session.user.users_id});
 })
 
-events.put('/:id/edit', db.editEvents, function(req,res){
+events.put('/:id', db.editEvents, function(req,res){
   res.status(303).redirect(`/users/mypage/${req.session.user.users_id}`);
-
 })
 
-events.delete('/:id/edit', db.deleteSingleEvent, function(req,res){
+events.delete('/:id', db.deleteSingleEvent, function(req,res){
   res.redirect(`/users/mypage/${req.session.user.users_id}`)
 })
 
